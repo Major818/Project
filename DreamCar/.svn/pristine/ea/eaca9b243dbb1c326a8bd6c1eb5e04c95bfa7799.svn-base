@@ -1,0 +1,55 @@
+package cn.tedu.dreamcar.service;
+
+import cn.tedu.dreamcar.mapper.ProdMapper;
+import cn.tedu.dreamcar.mapper.RoleMapper;
+import cn.tedu.dreamcar.pojo.Product;
+import cn.tedu.dreamcar.pojo.Role;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
+
+/**
+ * Created by Administrator on 2017/10/19.
+ */
+@Service
+public class RoleServiceImpl implements RoleService {
+
+    @Autowired
+    private RoleMapper roleMapper;
+
+    @Override
+    public List<Role> findAll() {
+        return roleMapper.findAll();
+    }
+
+    @Override
+    public Role findRoleById(String roleId) {
+        return roleMapper.findRoleById(roleId);
+    }
+
+    @Override
+    public void addRole(Role role) {
+        String id = UUID.randomUUID().toString();
+        role.setRole_Id(id);
+
+        String time = new Date().toString();
+        role.setCreateTime(time);
+        role.setUpdateTime(time);
+        roleMapper.addRole(role);
+    }
+
+    @Override
+    public void deleteRole(String roleId) {
+        roleMapper.deleteRole(roleId);
+    }
+
+    @Override
+    public void updateRole(String roleId,Role role) {
+        role.setUpdateTime(new Date().toString());
+
+        roleMapper.updateRole(roleId,role);
+    }
+}

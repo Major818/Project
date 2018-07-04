@@ -1,0 +1,480 @@
+﻿<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>购物车</title>	
+
+<!-- Favicons -->
+<link rel="shortcut icon" href="assets/images/favicon/dream-favicon.png" />
+<link rel="apple-touch-icon" href="assets/images/favicon/dream-favicon.png" />
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700|Raleway:300,400,500,600,700,800,900|Roboto:300,400,500,700" rel="stylesheet">
+
+<!-- =>> All Stylesheet <<= -->
+<!-- Bootstrap v3.3.6 Core CSS-->
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />  
+<!-- Owl Carousel 2 -->
+<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/owl.theme.default.css" />
+<!-- jquery-ui-1.12.0 CSS -->
+<link rel="stylesheet" type="text/css" href="assets/css/jquery-ui-css/jquery-ui-1.12.0.min.css" />
+<!-- Noice Slider (Price Range) -->
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.nouislider.min.css" />
+<!-- Animate 3.5.1 CSS -->
+<link rel="stylesheet" type="text/css" href="assets/css/animate.min.css" />
+<!--  Font Awesome 4.6.3 Icons -->
+<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" />
+<!-- Flat Icons -->
+<link rel="stylesheet" type="text/css" href="assets/flaticons/font/flaticon.css" />
+
+<!-- Custom/Main Stylesheets -->
+<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/header-menu-responsive.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+ 
+
+
+<!-- ALL SECTION INCLOSED TO THE WRAPPER -->
+<div class="wrapper">
+	<!-- BEGIN LOADING -->
+	<div id="loader" class="loader">
+		<div class="implode">
+			<div class="implode-in">
+				<div id="cover" class="acting"> 
+					<span></span> 
+					<span></span> 
+					<span></span> 
+					<span></span> 
+					<span></span> 
+					<span></span> 
+					<span></span>
+				</div>
+			</div>
+		</div> <!-- /.implode -->
+	</div> <!-- /#loader -->
+	<!-- END LOADING -->
+		
+<!-- HEADER AREA START -->
+	<header class="header fixed">
+		<!-- Header Top Begin -->
+		<div class="header-top hidden-xs hidden-sm">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-3 col-lg-5">
+						<div class="social-to">
+							
+							<ul>
+								<li><a href="#">欢迎来到, DREAM CAR汽车俱乐部！为您提供一站式汽车服务~</a></li>
+							</ul>
+							
+						</div> <!-- /.social-to -->
+					</div> <!-- /.col- -->
+					<div class="col-xs-12 col-sm-12 col-md-9 col-lg-7">
+						<div class="contact-to">
+							<div class="contact-text">
+								<ul>
+									
+									<li><a href="#"><i class="fa fa-map-marker"></i>登录</a></li>
+									<li><a href="#"><i class="fa fa-mobile-phone"></i>注册</a></li>
+								</ul>
+							</div>
+						</div> <!-- /.contact-to -->
+					</div> <!-- /.col- -->
+				</div> <!-- /.row -->
+			</div> <!-- /.container -->
+		</div> <!-- /.header-top -->
+
+		<!-- Main Menu Area Begin -->
+		<div class="container">		
+			<div class="main-menu-deputy">
+				<!-- Navbar visibility controls (<800px) -->
+				<div class="menu-when-collapse"></div>
+				<div class="menu-collapse-after-effect"></div>
+				<div class="logo">
+					<a href="index.html">
+						<img src="assets/images/logo/logo.png" alt="Logo">
+					</a>
+				</div><!-- /.logo -->
+			</div><!-- /.main-menu-deputy -->
+			<div class="main-menu">
+				<div class="close-nav"></div> <!-- Close the menu for mobile -->				
+				<ul class="main-nav">
+					<li><a href="index.html">首页</a></li>
+					<li><a href="overview.html">服务项目</a></li>
+					<li><a href="property.jsp">产品中心</a></li>
+					<li><a href="single.html">关于我们</a></li>
+					<li><a href="contact.html">在线预约</a></li>
+				</ul><!-- /.main-nav -->
+
+				<!--  Header Top visibility controls (=<991px) -->
+				<div class="header-top visible-xs visible-sm">
+					<div class="visible-xs visible-sm">
+						<div class="social-to">
+							<ul>
+								<li><a href="#">欢迎来到, DREAM CAR汽车俱乐部！为您提供一站式汽车服务~</a></li>
+							</ul>
+						</div> <!-- /.social-to -->
+					</div> <!-- /.col- -->
+					<div class="visible-xs visible-sm">
+						<div class="contact-to">
+							<div class="contact-text">
+								<ul>
+									<li><a href="#">登录</a></li>
+									<li><a href="#">注册</a></li>
+								</ul>
+							</div>
+						</div> <!-- /.contact-to -->
+					</div> <!-- /.col- -->
+				</div> <!-- /.header-top -->
+			</div><!-- /.main-menu -->
+		</div><!-- /.container -->
+		<!-- Main Menu Area End -->
+	</header><!-- /.header -->
+	<!-- /HEADER AREA END -->
+
+<style>
+#wrap ul, li{
+	list-style-type:none;
+}
+
+#wrap ul li{
+	float:left;
+	width:200px;
+	text-align:center;
+}
+#wrap ul#title{
+	width: 1200px;
+    margin: 20px auto 0px;
+    background-color: #F3F3F3;
+    border: 1px solid #CCCCCC;
+    line-height: 45px;
+    height: 45px;
+}
+#wrap ul.prods{
+    margin: 10px auto 0;
+    width: 1200px;
+    height: 100px;
+    line-height: 100px;
+	background-color: #FEF4E8;
+    border-top: 1px solid #ABAAA8;
+}
+#wrap ul li:first-child{
+	text-align: left;
+	width:120px;
+	padding-left: 30px;
+}
+#wrap ul li:last-child{
+	width:120px;
+	padding-right: 30px;
+}
+#wrap ul li.li_prod{
+	width:300px;
+}
+#wrap ul.prods li.li_prod{
+	text-align: left;
+}
+
+#wrap ul li img.prodimg{
+	vertical-align: middle;
+}
+#wrap ul li span.prodname{
+	vertical-align: middle;
+	margin-left: 20px;
+}
+#wrap ul li a{
+	text-decoration: none;
+}
+a.delNum, a.addNum{
+	border: 1px solid #CCCCCC;
+    padding: 5px 10px;
+    color:#000;
+   	vertical-align: middle;
+}
+a.delNum{  padding: 5px 12px; }
+input.buyNumInp{
+	vertical-align: middle;
+	border: 1px solid #CCCCCC;
+	padding: 2px 8px;
+	width: 40px;
+	height: 25px;
+	text-align: center;
+	font-size:16px;
+}
+/*总计*/
+#total{
+	width:1200px;
+	margin: 10px auto;
+}
+#total #total_1{
+	float:left;
+	width:1075px;
+	height:45px;
+	line-height:45px;
+	border: 1px solid #CCC;
+}
+#total #total_1 *{
+	vertical-align: middle;
+}
+#total #total_1 input[name='allC']{
+	margin-left:30px;
+}
+#total #total_1 #del_a{
+	margin-left: 15px;
+	text-decoration: none;
+}
+#total #total_1 #div_sum{
+	width:250px;
+	text-align: center;
+	float: right;	
+}
+#total #total_1 #span_1{
+}
+#total #total_1 #span_1+span{
+	font-size: 25px;
+	color:#FF0000;
+}
+#total #total_1 #span_2{
+	font-size: 25px;
+	color:#FF0000;
+}
+#total #total_2 a{
+	float:right;
+	width:123px;
+	height:47px;
+	line-height:47px;
+	text-align: center;
+	text-decoration:none;
+	background-color: #fe931f;
+	color: #FFF;
+	font-weight:bold;
+	font-size:24px;
+}
+#total #total_2 a:hover{
+	background-color: #DD4343;
+}
+</style>
+	
+	<div class="container">	
+	<div id="wrap">
+			<!-- 标题信息 -->
+			<ul id="title">
+				<li>
+					<input name="allC" type="checkbox" value="" onclick=""/>
+					<span id="title_checkall_text">全选</span>
+				</li>
+				<li class="li_prod">商品</li>
+				<li>单价（元）</li>
+				<li>数量</li>
+				<li>小计（元）</li>
+				<li>操作</li>
+			</ul>
+
+			<!-- 购物信息 -->
+			<ul class="prods">
+				<li>
+					<input type="checkbox" class="allC" name="allC"/> 
+				</li>
+				<li class="li_prod">
+					<img src="assets/images/cars/1.jpg" width="90" height="90" class="prodimg" />
+					<span class="prodname">荣耀6plus</span>
+				</li>
+				<li class="li_price">1999</li>
+				<li>
+					<a href="javascript:void(0)" class="delNum" >-</a>
+					<input class="buyNumInp" type="text" value="1" >
+					<a href="javascript:void(0)" class="addNum" >+</a>
+				</li>
+				<li class="sum_price">1999</li>
+				<li><a id="" class="delProd" href="javascript:void(0)">删除</a></li>
+			</ul>
+			<!-- 总计条 -->
+			<div id="total">
+				<div id="total_1">
+					<input type="checkbox" class="allC" name="allC"/> 
+					<span>全选</span>
+					<a id="del_a" href="javascript:void(0)">删除选中的商品</a>
+					<div id="div_sum">
+						<span id="span_1">总价：</span>
+						<span>￥</span>
+						<span id="span_2" class="total_sum_price">19990000</span>
+					</div>
+				</div>
+				<div id="total_2">	
+					<a id="goto_order" href="order_add.jsp">去结算</a>
+				</div>
+			</div>
+		</div>
+	</div>
+																																																					 
+	<!-- FOOTER AREA START -->
+	<footer class="footer" id="footer">
+		<div class="footer-widget-area">
+			<div class="container">	
+				<div class="footer-widgets">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+							<div class="single-widget">
+								<div class="widget-heading info-heading">
+									<a href="index.html" class="logo-footer">
+										<img src="assets/images/logo/logo-footer.png" alt="LogoFooter">
+									</a>
+								</div>
+								<div class="widget-info">
+									<p>我们为您提供集汽车内外装饰、汽车影音改装、汽车精品销售、汽车美容养护于一体的大型“一站式汽车服务”</p>
+								</div> <!-- /.widget-info -->
+							</div> <!-- /.single-widget -->
+						</div> <!-- /.col- -->
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+							<div class="single-widget">
+								<div class="widget-heading">
+									<h3>热门搜索</h3>
+								</div>
+								<div class="widget-link">
+									<ul>
+										<li><a href="#">一汽大众</a></li>
+										<li><a href="#">宝马</a></li>
+										<li><a href="#">路虎</a></li>
+										<li><a href="#">汽车配饰</a></li>
+										<li><a href="#">预约体验</a></li>
+									</ul>
+								</div> <!-- /.widget-link -->
+							</div> <!-- /.single-widget -->
+						</div> <!-- /.col- -->
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+							<div class="single-widget">
+								<div class="widget-heading">
+									<h3>常见问题</h3>
+								</div>
+								<div class="widget-link">
+									<ul>
+										<li><a href="#">问题解答</a></li>
+										<li><a href="#">服务支持t</a></li>
+										<li><a href="#">网站地图</a></li>
+										<li><a href="#">关于我们</a></li>
+										<li><a href="#">价格咨询</a></li>
+									</ul>
+								</div> <!-- /.widget-link -->
+							</div> <!-- /.single-widget -->
+						</div> <!-- /.col- -->
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+							<div class="single-widget">
+								<div class="widget-heading">
+									<h3>联系我们</h3>
+								</div>
+								<div class="widget-address">
+									<address>
+										<ul>
+											<li>
+												<div class="address-left">
+													<p>办公地址:</p>
+												</div>
+												<div class="address-right">
+													<p>21/D, Redwood City, CA 94872, USA</p>
+												</div>
+											</li>
+											<li>
+												<div class="address-left">
+													<p>电话:</p>
+												</div>
+												<div class="address-right">
+													<p>
+														+88-000-1111-2225 <br />
+														+88-000-1111-2226
+													</p>
+												</div>
+											</li>
+											<li>
+												<div class="address-social">
+													<ul>
+														<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+														<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+														<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+														<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+													</ul>
+												</div>
+											</li>
+										</ul>
+									</address>
+								</div> <!-- /.widget-address -->
+							</div> <!-- /.single-widget -->
+						</div> <!-- /.col- -->
+
+					</div> <!-- /.row -->  
+				</div> <!-- /.footer-widgets -->
+			</div> <!-- /.container -->
+		</div> <!-- /.footer-widget-area -->
+		<div class="copyright-designer">
+			<div class="container">	
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						<div class="copyright">
+							<p>版权所有   &copy;2019-2020  汽车美容工作室.</p>
+						</div> <!-- /.copyright -->
+					</div> <!-- /.col- -->
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						<div class="designer">
+							<p>
+							</p>
+						</div> <!-- /.designer -->
+					</div> <!-- /.col- -->
+				</div> <!-- /.row -->
+			</div> <!-- /.container -->
+		</div> <!-- /.copyright-designer -->
+
+		<!-- Go to the page top  -->
+		<div class="go-top">
+			<a href="#" class="back-to-top dream-btn">
+				<i class="fa fa-angle-up"></i>
+			</a>
+		</div> <!-- /.go-top -->
+	</footer> <!-- /.footer -->
+	<!-- /FOOTER AREA END -->
+</div> <!-- /.wrapper -->
+<!-- ALL SECTION INCLOSED TO THE WRAPPER -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugin and others plugins) -->
+<script type="text/javascript" src="assets/js/jquery-2.2.3.min.js"></script>
+<!-- jquery-ui-1.12.0 -->
+<script type="text/javascript" src="assets/js/jquery-ui/jquery-ui-1.12.0.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- Bootstrap v3.3.6 -->
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<!-- Owl Carousel 2 -->
+<script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+<!-- Owl Carousel v1.3.2 -->
+<script type="text/javascript" src="assets/js/owl-1.3.2/owl.carousel.min.js"></script>
+<!-- WOW - v1.1.3 -->
+<script type="text/javascript" src="assets/js/wow.min.js"></script>
+<!-- Typer Js -->
+<script type="text/javascript" src="assets/js/typed.min.js"></script>
+<!-- Noice Slider (Price Range) -->
+<script src="assets/js/jquery.nouislider.min.js"></script> 
+<!-- jQuery Mobile Library -->
+<script type="text/javascript" src="assets/js/jquery.mobile.custom.min.js"></script>  
+<!-- Conatact Map -->
+<!--<script type="text/javascript" src="assets/js/map-script.js"></script>-->
+
+<!-- Custom/Main Script here -->
+<script type="text/javascript" src="assets/js/menu.js"></script>
+<script type="text/javascript" src="assets/js/custom.js"></script>
+
+
+</body>
+</html>

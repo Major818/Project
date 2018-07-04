@@ -1,0 +1,59 @@
+package cn.tedu.dreamcar.pojo;
+
+public class Role {
+
+    private String roleId;
+    private String name;
+    private String remarks;
+    private Integer orderNo;
+    private String createTime;
+    private String updateTime;
+
+    public String getRoleId() {
+        return roleId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public Integer getOrderNo() {
+        return orderNo;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setRole_Id(String roleId) {
+        this.roleId = roleId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
+    public void setOrderNo(Integer orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+}

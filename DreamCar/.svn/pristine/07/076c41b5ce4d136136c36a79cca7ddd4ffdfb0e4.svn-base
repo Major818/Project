@@ -1,0 +1,71 @@
+package cn.tedu.dreamcar.pojo;
+
+/**
+ * Created by Administrator on 2017/10/19.
+ */
+public class Product {
+
+    private Integer prodId;
+    private String prodName;
+    private Integer prodPrice;
+    private String prodKind;
+    private String prodImgurl;
+    private Integer prodNum;
+    private String prodDesc;
+
+    public Integer getProdId() {
+        return prodId;
+    }
+
+    public void setProdId(Integer prodId) {
+        this.prodId = prodId;
+    }
+
+    public String getProdName() {
+        return prodName;
+    }
+
+    public void setProdName(String prodName) {
+        this.prodName = prodName;
+    }
+
+    public Integer getProdPrice() {
+        return prodPrice;
+    }
+
+    public void setProdPrice(Integer prodPrice) {
+        this.prodPrice = prodPrice;
+    }
+
+    public String getProdKind() {
+        return prodKind;
+    }
+
+    public void setProdKind(String prodKind) {
+        this.prodKind = prodKind;
+    }
+
+    public String getProdImgurl() {
+        return prodImgurl;
+    }
+
+    public void setProdImgurl(String prodImgurl) {
+        this.prodImgurl = prodImgurl;
+    }
+
+    public Integer getProdNum() {
+        return prodNum;
+    }
+
+    public void setProdNum(Integer prodNum) {
+        this.prodNum = prodNum;
+    }
+
+    public String getProdDesc() {
+        return prodDesc;
+    }
+
+    public void setProdDesc(String prodDesc) {
+        this.prodDesc = prodDesc;
+    }
+}

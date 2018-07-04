@@ -1,0 +1,25 @@
+package cn.tedu.dreamcar.controller;
+
+import cn.tedu.dreamcar.pojo.Reservation;
+import cn.tedu.dreamcar.service.DateService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ * Created by Administrator on 2017/10/20.
+ */
+@Controller
+public class DateController {
+    @Autowired
+    private DateService dateService;
+
+
+    //跳转回主页
+    @RequestMapping("/index2")
+    public String insert(Reservation reservation){
+
+        dateService.insertDate(reservation);
+        return "index";
+    }
+}

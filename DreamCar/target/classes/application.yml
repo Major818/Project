@@ -1,0 +1,34 @@
+server:
+  port: 8090
+  context-path: /
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/fh
+    username: root
+    password: root
+  mvc:
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp
+  mail:
+    host: smtp.qq.com
+    username: 928065584@qq.com
+    password: 818115MW
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+mail:
+  fromMail:
+    addr: 928065584@qq.com
+
+mybatis:
+  config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/mybatis/mappers/*.xml
+  type-aliases-package: cn.tedu.dreamcar.pojo
+

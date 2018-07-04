@@ -1,0 +1,154 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>商品管理</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+body {
+	font-family: "微软雅黑";
+	background-color: #EDEDED;
+}
+
+h2 {
+	text-align: center;
+}
+
+table {
+	margin: 0 auto;
+	/* width: 96%; */
+	text-align: center;
+	border-collapse: collapse;
+}
+
+td,th {
+	padding: 7px;
+}
+
+th {
+	background-color: #DCDCDC;
+}
+
+th.ths {
+	width: 100px;
+}
+
+input.pnum {
+	width: 80px;
+	height: 25px;
+	font-size: 18px;
+	text-align: center;
+}
+</style>
+
+<!--引入jquery的js库-->
+<script src="../assets/js/jquery-1.4.2.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$(".pnum").blur(function() {
+			/* 
+			 1.当输入框失去焦点时没有做任何修改, 不应该向服务器发送请求
+			 2.当输入的数值不是合法数值时, 要提示"您输入的数值不合法"
+			 3.当提示完"您输入的数值不合法"后, 将输入框的值还原上一次的值
+			 */
+			//1.当输入框失去焦点时没有做任何修改, 不应该向服务器发送请求 
+			var _this = this;
+			//获取商品的库存数量(旧的数量)
+			var oldpnum = $(this).attr("oldpnum");
+			var pid = $(this).attr("id");
+			//获取商品的库存数量(新的数量)
+			var newpnum = $(this).val();
+			if (oldpnum == newpnum) {
+				return;
+			}
+			// 2.当输入的数值不是合法数值时, 要提示"您输入的数值不合法"    
+			var reg = /^0$|^[1-9][0-9]*$/;
+			if (!reg.test(newpnum)) {
+				alert("您输入的数值不合法");
+				$(this).val(oldpnum);//3.将数值还原为原来的数值
+				return;
+			}
+			//使用ajax请求异步访问服务器，修改商品库存数量，保存到数据库中
+			$.post("/toupdate", {
+				"pnum" : newpnum,
+				"pid" : pid
+			}, function(result) {
+				/*jQuery的post提交的方式$.post(发送请求的url,要发送给服务器的数据，
+				       请求成功后执行的函数，参数为处理后通过response响应的)  */
+				if ("true" == result) {
+					alert("修改成功");
+					//修改成功后及时更新旧的库存数量
+					$(_this).attr("oldpnum", newpnum);
+				} else {
+					alert("修改失败");
+				}
+
+			});
+		});
+
+		/* 删除商品 
+		 * 给所有的删除超链接添加点击事件，点击删除执行删除当前商品的操作
+		 */
+		$(".del").click(function() {
+			//添加消息确认对话框,确认是否真的删除商品
+			if (!window.confirm("您确定要删除该商品吗？")) {
+				return;
+			}
+			//获取所要删除商品 的ID
+			var pid = $(this).parents("tr").find(".pnum").attr("id");
+			var _this = this;
+			//利用ajax异步访问服务器来删除指定ID的商品
+			$.post("/todel", {
+				"pid" : pid
+			}, function(result) {
+				//result为true表示删除成功
+				if ("true" == result) {
+					alert("删除成功");
+					//同时将商品信息从页面中也删除
+					$(_this).parents("tr").remove();
+				} else {
+					alert("删除失败");
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<h2>商品管理</h2>
+	<table border="1">
+		<tr>
+			<th>商品图片</th>
+			<th width="200px">商品ID</th>
+			<th class="ths">商品名称</th>
+			<th class="ths">商品种类</th>
+			<th class="ths">商品单价</th>
+			<th class="ths">库存数量</th>
+			<th>描述信息</th>
+			<th width="50px">操 作</th>
+		</tr>
+
+		<!-- 模版数据 -->
+		<c:forEach items="${prodList}" var="prod">
+			<!-- items指定遍历的集合对象，var指定集合中遍历到的元素 prod指list集合中保存的
+		            product对象，并将该对象保存到当前的page域中-->
+			<tr>
+				<td><img width="120px" height="120px"
+					src="${prod.prodImgurl}" alt="">
+				</td>
+				<td>${ prod.prodId }</td>
+				<td>${ prod.prodName}</td>
+				<td>${ prod.prodKind }</td>
+				<td>${ prod.prodPrice }</td>
+				<td><input type="text" class="pnum" id="${ prod.prodId }"
+					oldpnum="${prod.prodNum }" value="${ prod.prodNum }" />
+				</td>
+				<td>${ prod.prodDesc }</td>
+				<td><a class="del" href="javascript:void(0)"><!--  js代码什么意思？-->
+						删 除</a></td>
+			</tr>
+		</c:forEach>
+	</table>
+</body>
+</html>

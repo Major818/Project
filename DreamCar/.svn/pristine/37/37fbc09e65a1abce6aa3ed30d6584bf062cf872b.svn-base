@@ -1,0 +1,44 @@
+package cn.tedu.dreamcar.service;
+
+import cn.tedu.dreamcar.mapper.CarMapper;
+import cn.tedu.dreamcar.mapper.UserMapper;
+import cn.tedu.dreamcar.pojo.Car;
+import cn.tedu.dreamcar.pojo.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.UUID;
+
+/**
+ * Created by Administrator on 2017/10/19.
+ */
+@Service
+public class UserServiceImpl implements UserService {
+    @Autowired
+    UserMapper userMapper;
+    @Autowired
+    CarMapper carMapper;
+
+    public void saveUser(User user,Car car){
+        String userId= UUID.randomUUID().toString();
+        user.setUserId(userId);
+        userMapper.saveUser(user);
+
+        car.setUserId(userId);
+        carMapper.saveCar(car);
+
+    }
+
+    @Override
+    public User findUser(String username, String password) {
+
+        return userMapper.findUser(username,password);
+
+    }
+
+    @Override
+    public User findUserByUserName(String username) {
+        return userMapper.findUserByUserName(username);
+    }
+
+}

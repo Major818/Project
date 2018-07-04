@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.dreamcar.mapper.ModuleMapper">
+
+    <select id="findAllModule" resultMap="moduleRM">
+        select * from
+
+		module_p m
+
+		left join
+
+		(select module_id p_id,name p_name from module_p) p
+
+		on m.parent_id = p.p_id
+    </select>
+    <resultMap id="moduleRM" type="Module" autoMapping="true">
+        <id column="module_id" property="moduleId"></id>
+        <association property="parentModule" javaType="Module">
+            <id column="p_id" property="moduleId"></id>
+            <result column="p_name" property="name"></result>
+        </association>
+    </resultMap>
+
+    <select id="findModuleById" resultMap="moduleRM">
+        select * from
+
+		module_p m
+
+		left join
+
+		(select module_id p_id,name p_name from module_p) p
+
+		on m.parent_id = p.p_id
+
+		where module_id = #{moduleId}
+    </select>
+
+    <delete id="deleteModule">
+        delete from module_p where module_id = #{moduleId}
+    </delete>
+
+    <insert id="addModule">
+        insert into module_p values(
+		#{moduleId},
+		#{parentModule.moduleId},
+		#{name},
+		#{ctype},
+		#{remark},
+		#{createTime},
+		#{updateTime}
+		)
+    </insert>
+
+    <update id="updateModule">
+        update module_p set name = #{name}, ctype = #{ctype},remark = #{remark},update_time = #{updateTime}
+    </update>
+
+
+
+</mapper>

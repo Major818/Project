@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.dreamcar.mapper.UserMapper">
+
+
+    <insert id="saveUser">
+        insert into user
+        (user_id,username,password,age,sex,profession,phone,email)
+        values
+       (#{userId,jdbcType=VARCHAR},
+        #{username,jdbcType=VARCHAR},
+        #{password,jdbcType=VARCHAR},
+        #{age,jdbcType=INTEGER},
+        #{sex,jdbcType=VARCHAR},
+        #{profession,jdbcType=VARCHAR},
+        #{phone,jdbcType=INTEGER},
+        #{email,jdbcType=VARCHAR})
+    </insert>
+    <select id="findUser" resultType="User">
+        select * from user
+        where
+        username=#{username} and password=#{password}
+    </select>
+
+   <!--用户管理 ：查询所有用户信息-->
+    <select id="findAll" resultMap="userRM">
+select u.user_id,u.username,u.age,u.sex,u.profession,u.phone,u.email,c.car_name,c.car_num,c.car_color,r.name
+from role_p r,role_user_p rp,user u,car c
+where r.role_id=rp.ROLE_ID and u.user_id=rp.USER_ID and c.user_id=u.user_id
+    </select>
+    <!--封装用户信息表  -->
+    <resultMap type="User" id="userRM" autoMapping="true">
+        <id column="user_id" property="userId"/>
+
+        <!--封装汽车模块信息  -->
+        <association property="car" javaType="Car" autoMapping="true">
+            <id column="car_name" property="carName"/>
+        </association>
+        <!--封装用户的权限信息-->
+        <association property="role" javaType="Role" autoMapping="true">
+            <id column="name" property="name"/>
+        </association>
+    </resultMap>
+
+
+    <!--删除用户的信息-->
+    <delete id="deleteUsers">
+        delete from user where user_id in(
+        <foreach collection="array" item="id" separator=",">
+            #{id}
+        </foreach>
+        )
+    </delete>
+
+    <!--新增用户信息-->
+    <insert id="saveUsers">
+        insert into user
+        (user_id,username,password,age,sex,profession,phone,email)
+        values
+       (#{userId,jdbcType=VARCHAR},
+        #{username,jdbcType=VARCHAR},
+        #{password,jdbcType=VARCHAR},
+        #{age,jdbcType=INTEGER},
+        #{sex,jdbcType=VARCHAR},
+        #{profession,jdbcType=VARCHAR},
+        #{phone,jdbcType=INTEGER},
+        #{email,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="saveCars">
+        insert into car
+        (car_name,car_color,car_num,user_id)
+        values
+        (#{carName,jdbcType=VARCHAR},
+        #{carColor,jdbcType=VARCHAR},
+        #{carNum,jdbcType=INTEGER},
+        #{userId,jdbcType=VARCHAR}
+        )
+    </insert>
+
+
+    <insert id="saveRoles">
+        insert into role_user_p
+        (role_id,user_id)
+        values
+        (#{roleId,jdbcType=VARCHAR},
+        #{userId,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <select id="findUserByUsername" resultType="User">
+        select * from user
+        where
+        username=#{username}
+    </select>
+
+    <select id="findUserRole" resultType="String">
+       select name from role_p
+       where role_id in
+       (select role_id from role_user_p where user_id=#{userId})
+
+    </select>
+
+    <select id="findPrililegeInfoList" resultType="String">
+   select name from module_p
+       where module_id in
+      (select module_id from role_module_p
+        where role_id in
+       (select role_id from role_user_p where user_id=#{userId}))
+
+    </select>
+
+
+</mapper>

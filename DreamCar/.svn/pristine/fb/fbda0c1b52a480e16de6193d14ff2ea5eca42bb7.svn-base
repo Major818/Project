@@ -1,0 +1,10 @@
+package cn.tedu.dreamcar.service;
+
+import cn.tedu.dreamcar.pojo.Reservation;
+
+/**
+ * Created by Administrator on 2017/10/20.
+ */
+public interface DateService {
+    public void insertDate(Reservation reservation);
+}

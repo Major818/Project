@@ -1,0 +1,19 @@
+package cn.tedu.dreamcar.mapper;
+
+import cn.tedu.dreamcar.pojo.Module;
+
+import java.util.List;
+
+public interface ModuleMapper {
+    public List<Module> findAllModule();
+
+    public Module findModuleById(String moduleId);
+
+    public void deleteModule(String moduleId);
+
+    public void addModule(Module module);
+
+    public void updateModule(Module module,String moduleId);
+
+
+}

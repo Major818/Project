@@ -1,0 +1,64 @@
+package cn.tedu.dreamcar.service;
+
+import cn.tedu.dreamcar.mapper.ModuleMapper;
+import cn.tedu.dreamcar.mapper.RoleMapper;
+import cn.tedu.dreamcar.pojo.Module;
+import cn.tedu.dreamcar.pojo.Role;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
+
+/**
+ * Created by Administrator on 2017/10/19.
+ */
+@Service
+public class ModuelServiceImpl implements ModuleService {
+
+
+    @Autowired
+    private ModuleMapper moduleMapper;
+
+    @Override
+    public List<Module> findAllModule() {
+        return moduleMapper.findAllModule();
+    }
+
+    @Override
+    public Module findModuleById(String moduleId) {
+        return moduleMapper.findModuleById(moduleId);
+    }
+
+    @Override
+    public void deleteModule(String[] moduleIds) {
+        for (String moduleId:moduleIds) {
+            moduleMapper.deleteModule(moduleId);
+        }
+    }
+
+    @Override
+    public void addModule(Module module) {
+
+        String id = UUID.randomUUID().toString();
+
+        module.setModuleId(id);
+
+        String date = new Date().toString();
+
+        module.setCreateTime(date);
+        module.setUpdateTime(date);
+
+        moduleMapper.addModule(module);
+    }
+
+    @Override
+    public void updateModule(Module module,String moduleId) {
+        module.setUpdateTime(new Date().toString());
+        moduleMapper.updateModule(module,moduleId);
+    }
+
+
+}

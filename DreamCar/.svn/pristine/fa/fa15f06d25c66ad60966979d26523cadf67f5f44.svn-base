@@ -1,0 +1,17 @@
+server:
+  port: 8090
+  context-path: /
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.8.46.249/fh
+    username: root
+    password: root
+  mvc:
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp
+mybatis:
+  config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/mybatis/mappers/*.xml
+  type-aliases-package: cn.tedu.dreamcar.pojo

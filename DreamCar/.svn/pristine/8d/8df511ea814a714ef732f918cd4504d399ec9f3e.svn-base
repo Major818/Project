@@ -1,0 +1,75 @@
+package cn.tedu.dreamcar.pojo;
+
+public class Module {
+
+    private Module parentModule;
+
+    private String moduleId;
+    private String name;
+    private Integer ctype;
+    private String remark;
+    private String createTime;
+    private String updateTime;
+
+    public void setParentModule(Module parentModule) {
+        this.parentModule = parentModule;
+    }
+
+    public Module getParentModule() {
+        return parentModule;
+    }
+
+    public void setModuleId(String moduleId) {
+        this.moduleId = moduleId;
+    }
+
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCtype(Integer ctype) {
+        this.ctype = ctype;
+    }
+
+
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public String getModuleId() {
+        return moduleId;
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getCtype() {
+        return ctype;
+    }
+
+
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+}

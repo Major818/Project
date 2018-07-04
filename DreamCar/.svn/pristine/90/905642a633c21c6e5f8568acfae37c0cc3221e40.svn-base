@@ -1,0 +1,74 @@
+package cn.tedu.dreamcar.controller;
+import cn.tedu.dreamcar.pojo.Car;
+import cn.tedu.dreamcar.pojo.User;
+import cn.tedu.dreamcar.service.UserService;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestMapping;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Created by Administrator on 2017/10/19.
+ */
+
+@Controller
+public class UserController {
+    @Autowired
+    UserService userService;
+    //注册
+    @RequestMapping("/regist")
+    public String regist(User user, Car car, Model model, HttpSession session, HttpServletRequest request){
+        System.out.println("进来了");
+        //校验验证码是否正确
+        String valistr=user.getValistr();
+        if(valistr==null){
+            model.addAttribute("msg","验证码不能为空");
+            return"/user_regist";
+        }
+        String code = (String) request.getSession().getAttribute("code");
+        if(!valistr.equalsIgnoreCase(code)){
+            model.addAttribute("msg","验证码不正确！！");
+            return"/user_regist";
+        }
+        userService.saveUser(user,car);
+        return"user_login";
+    }
+    //登录
+    @RequestMapping("/login")
+    public String Login(String username,String password,Model model,HttpSession session) {
+        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
+            model.addAttribute("result", "用户密码不能为空");
+            return "user_login";
+        }
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+        try {
+            subject.login(token);
+            User user = (User) subject.getPrincipal();
+            session.setAttribute("user", user);
+            return "redirect:/index";
+        } catch (AuthenticationException e) {
+            e.printStackTrace();
+            model.addAttribute("result", "用户名或密码不正确");
+            return "user_login";
+        }
+    }
+    @RequestMapping("/logout")
+    public String loginOut(HttpSession httpSession){
+
+        //将user对象从session域中删除
+        httpSession.removeAttribute("user");
+        //页面应该跳转到登陆页面
+        return "/index";
+    }
+
+
+}
+

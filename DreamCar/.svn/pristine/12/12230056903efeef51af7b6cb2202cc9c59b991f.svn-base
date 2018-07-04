@@ -1,0 +1,1127 @@
+﻿<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>首页|汽车维修美容 | 维修服务、保养服务、钣金喷漆、AMG改装、加装服务、高档美容</title>	
+
+<!-- Favicons -->
+<link rel="shortcut icon" href="assets/images/favicon/dream-favicon.png" />
+<link rel="apple-touch-icon" href="assets/images/favicon/dream-favicon.png" />
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700|Raleway:300,400,500,600,700,800,900|Roboto:300,400,500,700" rel="stylesheet">
+
+<!-- =>> All Stylesheet <<= -->
+<!-- Bootstrap v3.3.6 Core CSS-->
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />  
+<!-- Owl Carousel 2 -->
+<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/owl.theme.default.css" />
+<!-- jquery-ui-1.12.0 CSS -->
+<link rel="stylesheet" type="text/css" href="assets/css/jquery-ui-css/jquery-ui-1.12.0.min.css" />
+<!-- Noice Slider (Price Range) -->
+<link rel="stylesheet" type="text/css" href="assets/css/jquery.nouislider.min.css" />
+<!-- Animate 3.5.1 CSS -->
+<link rel="stylesheet" type="text/css" href="assets/css/animate.min.css" />
+<!--  Font Awesome 4.6.3 Icons -->
+<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" />
+<!-- Flat Icons -->
+<link rel="stylesheet" type="text/css" href="assets/flaticons/font/flaticon.css" />
+
+<!-- Custom/Main Stylesheets -->
+<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/header-menu-responsive.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+<!-- ALL SECTION INCLOSED TO THE WRAPPER -->
+<div class="wrapper">
+	<!-- BEGIN LOADING -->
+	<div id="loader" class="loader">
+		<div class="implode">
+			<div class="implode-in">
+				<div id="cover" class="acting"> 
+					<span></span> 
+					<span></span> 
+					<span></span> 
+					<span></span> 
+					<span></span> 
+					<span></span> 
+					<span></span>
+				</div>
+			</div>
+		</div> <!-- /.implode -->
+	</div> <!-- /#loader -->
+	<!-- END LOADING -->
+		
+	<!-- HEADER AREA START -->
+	<header class="header fixed">
+		<!-- Header Top Begin -->
+		<div class="header-top hidden-xs hidden-sm">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-3 col-lg-5">
+						<div class="social-to">
+							<!--<ul>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+								<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+								<li><a href="#"><i class="fa fa-skype"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+							</ul>-->
+							<ul>
+								<li><a href="#">欢迎来到, DREAM CAR汽车俱乐部！为您提供一站式汽车服务~</a></li>
+							</ul>
+							
+						</div> <!-- /.social-to -->
+					</div> <!-- /.col- -->
+					<div class="col-xs-12 col-sm-12 col-md-9 col-lg-7">
+						<div class="contact-to">
+							<div class="contact-text">
+								<ul>
+									<!--<li><a href="#"><i class="fa fa-map-marker"></i>登录</a></li>
+									<li><a href="#"><i class="fa fa-mobile-phone"></i>注册</a></li>
+									<li><a href="#"><i class="fa fa-clock-o"></i>Mon - Sat  10.00 - 19.00</a></li>-->
+									<c:if test="${ empty sessionScope.user }">
+									<li><a href="/tologin"><i class="fa fa-map-marker"></i>登录</a></li>
+									<li><a href="/toregist"><i class="fa fa-mobile-phone"></i>注册</a></li>
+									</c:if>
+									<c:if test="${ !(empty sessionScope.user) }">
+										<a style="color:#fff;" href="/tobacklogin">  ${ user.username } ：您好,&nbsp; </a>
+										<a href="/logout">退出</a>
+									</c:if>
+
+
+								</ul>
+							</div>
+						</div> <!-- /.contact-to -->
+					</div> <!-- /.col- -->
+				</div> <!-- /.row -->
+			</div> <!-- /.container -->
+		</div> <!-- /.header-top -->
+
+		<!-- Main Menu Area Begin -->
+		<div class="container">		
+			<div class="main-menu-deputy">
+				<!-- Navbar visibility controls (<800px) -->
+				<div class="menu-when-collapse"></div>
+				<div class="menu-collapse-after-effect"></div>
+				<div class="logo">
+					<a href="index.html">
+						<img src="assets/images/logo/logo.png" alt="Logo">
+					</a>
+				</div><!-- /.logo -->
+			</div><!-- /.main-menu-deputy -->
+			<div class="main-menu">
+				<div class="close-nav"></div> <!-- Close the menu for mobile -->				
+				<ul class="main-nav">
+					<li><a href="/index">首页</a></li>
+					<li><a href="/overview">服务项目</a></li>
+					<li><a href="/property">产品中心</a></li>
+					<li><a href="/single">关于我们</a></li>
+					<li><a href="/contact">在线预约</a></li>
+				</ul><!-- /.main-nav -->
+
+
+
+				<!--  Header Top visibility controls (=<991px) -->
+				<div class="header-top visible-xs visible-sm">
+					<div class="visible-xs visible-sm">
+						<div class="social-to">
+							<ul>
+								<li><a href="#">欢迎来到, DREAM CAR汽车俱乐部！为您提供一站式汽车服务~</a></li>
+							</ul>
+						</div> <!-- /.social-to -->
+					</div> <!-- /.col- -->
+					<div class="visible-xs visible-sm">
+						<div class="contact-to">
+							<div class="contact-text">
+								<ul>
+									<li><a href="#">登录</a></li>
+									<li><a href="#">注册</a></li>
+								</ul>
+							</div>
+						</div> <!-- /.contact-to -->
+					</div> <!-- /.col- -->
+				</div> <!-- /.header-top -->
+			</div><!-- /.main-menu -->
+		</div><!-- /.container -->
+		<!-- Main Menu Area End -->
+	</header><!-- /.header -->
+	<!-- /HEADER AREA END -->
+
+
+	<!-- MAIN SLIDER AND PROPERTY SEARCH AREA START-->
+	<section id="main-slider" class="carousel main-slider">
+		<div class="carousel slide">
+			<div class="carousel-inner">
+
+				<div class="item active item-bg-1">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="slider-items">
+									<div class="animation animated-item-4">
+										<!-- Only Slider Top Style -->
+										<div class="slider-head-style">
+										</div>
+									</div>
+									<div class="mian-heading">
+										<h2>超越 <span class="typed-from-js"></span></h2>
+										<div class="main-title">
+											<h3>与您同行</h3>
+											<strong></strong> <!-- Use for heading after effect -->
+										</div>
+									</div>
+								</div> <!-- /.slider-items -->
+							</div>
+						</div>
+					</div>
+				</div> <!--/.item--> 
+				<div class="item item-bg-2">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="slider-items">
+									<div class="animation animated-item-4">
+										<!-- Only Slider Top Style -->
+										<div class="slider-head-style">
+										</div>
+									</div>
+									<div class="mian-heading">
+										<h2>超越 <span class="typed-from-js"></span></h2>
+										<div class="main-title">
+											<h3>与您同行</h3>
+											<strong></strong> <!-- Use for heading after effect -->
+										</div>
+									</div>
+								</div> <!-- /.slider-items -->
+							</div>
+						</div>
+					</div>
+				</div> <!--/.item--> 
+				<div class="item item-bg-3">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="slider-items">
+									<div class="animation animated-item-4">
+										<!-- Only Slider Top Style -->
+										<div class="slider-head-style">
+										</div>
+									</div>
+									<div class="mian-heading">
+										<h2>超越 <span class="typed-from-js"></span></h2>
+										<div class="main-title">
+											<h3>与您同行</h3>
+											<strong></strong> <!-- Use for heading after effect -->
+										</div>
+									</div>
+								</div> <!-- /.slider-items -->
+							</div>
+						</div>
+					</div>
+				</div> <!--/.item--> 
+
+				<!-- Property Search Area Start -->
+				<div class="property-search-area container">
+					<div class="property-search-form ">
+						<div class="advanced-search-sec row">
+							<form method="get" action="#">
+								<div class="col-xs-12 col-sm-6 col-md-me-15 col-lg-me-17 search-field">
+									<label for="property-location">销售区域</label>
+									<select id="property-location" name="Cities">
+										<option value="0">所有城市</option>
+										<option value="1">北京</option>
+										<option value="2">上海</option>
+										<option value="3">广州</option>
+										<option value="4">重庆</option>
+										<option value="5">杭州</option>
+									</select>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-me-15 col-lg-me-17 search-field">
+									<label for="proeprty-type">品牌</label>
+									<select id="proeprty-type" name="Property-type">
+										<option value="0">所有品牌</option>
+										<option value="1">上汽大众</option>
+										<option value="2">别克</option>
+										<option value="3">宝马</option>
+										<option value="4">名爵</option>
+										<option value="5">现代</option>
+									</select>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-me-13 col-lg-me-13 search-field">
+									<label for="property-room">排量</label>
+									<select id="property-room" name="Total-room">
+										<option value="0">全部</option>
+										<option value="1">1.0L</option>
+										<option value="2">1.4L</option>
+										<option value="3">1.5L</option>
+										<option value="4">1.6L</option>
+										<option value="5">1.8L</option>
+										<option value="6">2.0L</option>
+										<option value="7">2.4L</option>
+										<option value="8">2.5L</option>
+									</select>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-me-13 col-lg-me-13 search-field">
+									<label for="property-bathroom">内外饰品</label>
+									<select id="property-bathroom" name="Bathrooms">
+										<option value="0">所有饰品</option>
+										<option value="1">方向盘套</option>
+										<option value="2">坐垫</option>
+										<option value="3">车载充气床</option>
+										<option value="4">个性创意</option>
+										<option value="5">儿童专用</option>
+										<option value="6">其他</option>
+									</select>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-me-29 col-lg-me-25 search-field">
+									<div class="price-range">
+										<div class="property-price">
+											<label>价格区间</label>
+											<div class="price-range">
+												<div class="price-input-count">
+													<input type="text" name="price min" id="price-min" />
+												</div>
+												<span class="price-money">-</span>
+												<div class="price-input-count">
+													<input type="text" name="price max" id="price-max" />
+												</div>
+											</div>
+											<div class="price-range-select">
+												<div class="priceSlider"></div>
+											</div>
+										</div> <!-- /.property-price -->
+									</div> <!-- /.price-range -->
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-me-15 col-lg-me-15 search-field">
+									<div class="submit">
+										<button type="submit" value="Search" class="dream-btn">搜索</button>
+									</div>
+								</div>
+							</form>
+						</div> <!-- /.advanced-search-sec -->
+						<!-- Show or Hide Property -->
+						<a class="more-options close-element"></a>
+					</div>
+				</div> <!-- /.property-search-area -->
+				<!-- Property Search Area End -->
+			</div> <!-- /.carousel-inner -->
+		</div> <!--/.carousel--> 
+		<a class="prev hidden-xs" href="#main-slider" data-slide="prev"> 
+			<i class="fa fa-long-arrow-left"></i>
+		</a> 
+		<a class="next hidden-xs" href="#main-slider" data-slide="next"> 
+			<i class="fa fa-long-arrow-right"></i> 
+		</a> 
+	</section> <!-- /.main-slider -->
+	<!-- /MAIN SLIDER AND PROPERTY SEARCH AREA START --> 
+
+	<!-- RENEWAL AREA START -->
+	<section class="renewal">
+		<div class="container">	
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+					<div class="renewal-items">
+						<div class="renewal-icon">
+							<i class="flaticon-house"></i>
+						</div>
+						<div class="title">
+							<h3><a href="#">安全智能 防撞系统</a></h3>
+						</div>
+						<div class="content">
+							<p>欧美家汽车智能防撞控制系统安装在车辆上可供驾驶人员自由选择使用。</p>
+						</div>
+						<!--<div class="renewal-btn">
+							<a href="#" class="fresh-btn">Read more</a>
+						</div>-->
+					</div> <!-- /.renewal-items -->
+				</div> <!-- /.col- -->
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+					<div class="renewal-items">
+						<div class="renewal-icon">
+							<i class="flaticon-burj-al-arab-1"></i>
+						</div>
+						<div class="title">
+							<h3><a href="#">原厂品质 正品配件</a></h3>
+						</div>
+						<div class="content">
+							<p>产品均由专业的整车配件厂家生产，正厂配件。</p>
+						</div>
+						<!--<div class="renewal-btn">
+							<a href="#" class="fresh-btn">Read more</a>
+						</div>-->
+					</div> <!-- /.renewal-items -->
+				</div> <!-- /.col- -->
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+					<div class="renewal-items">
+						<div class="renewal-icon">
+							<i class="flaticon-mansion"></i>
+						</div>
+						<div class="title">
+							<h3><a href="#">全里程保养保障</a></h3>
+						</div>
+						<div class="content">
+							<p>国内领先的全新互动式体验型“检测+保养”汽车深化保养解决方案，让你享受全程无忧的汽车11大系统深化保养</p>
+						</div>
+						<!--<div class="renewal-btn">
+							<a href="#" class="fresh-btn">Read more</a>
+						</div>-->
+					</div> <!-- /.renewal-items -->
+				</div> <!-- /.col- -->
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+					<div class="renewal-items">
+						<div class="renewal-icon">
+							<i class="flaticon-cityscape"></i>
+						</div>
+						<div class="title">
+							<h3><a href="#">高性价比</a></h3>
+						</div>
+						<div class="content">
+							<p>汽车性价比就是：价格更低、空间最大(车长)、外形更华丽、内饰更豪华、电子设备多多益善!</p>
+						</div>
+						<!--<div class="renewal-btn">
+							<a href="#" class="fresh-btn">Read more</a>
+						</div>-->
+					</div> <!-- /.renewal-items -->
+				</div> <!-- /.col- -->
+			</div> <!-- /.row -->  
+		</div> <!-- /.container -->
+	</section> <!-- /.renewal -->
+	<!-- /RENEWAL AREA END -->
+
+	<!-- ROOM FEATURE AREA START -->
+	<section class="room-feature">
+		<div class="bg-img-over-effect"></div>
+		<div class="container">	
+			<div class="section-heading if-bg-colorful">
+				<h5></h5>
+				<div class="main-title">
+					<h2><span>引领时代</span>  驾驭未来 </h2>
+					<strong></strong> <!-- Use for heading after effect -->
+				</div>
+			</div> <!-- /.section-heading -->
+			<div class="room-feature-all">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						<div class="feature-content wow fadeInLeft">
+							<h3>公司简介</h3>
+							<p>
+汽车有限公司成立于XXX年XX月XX日，是本地区唯一的授权销售服务中心和特约售后服务中心。主要从事多种品牌的整车销售、 售后服务、配件供应及信息反馈业务。
+ 
+公司秉承 “尊荣无限 至上体验”的服务理念，培养更主动贴心的服务意识,追求更周到便捷的服务水准，让每一位车主，都体验到管家般的细致专业，享受到待为贵宾般的尊崇体验公司秉承 “尊荣无限 至上体验”的服务理念，培养更主动贴心的服务意识,追求更周到便捷的服务水准，让每一位车主，都体验到管家般的细致专业，享受到待为贵宾般的尊崇体验……</p>
+							<div class="room-feature-btn">
+								<a href="#" class="dream-btn">查看详情</a>
+							</div>
+						</div> <!-- /.feature-content -->
+					</div> <!-- /.col- -->
+					<!-- Room Slider Begin -->
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						<div id="room-slider" class="carousel slide room-slider wow fadeInRight" data-ride="carousel" data-interval="3000">
+							<!-- Indicators -->
+							<ol class="carousel-indicators">
+								<li data-target="#room-slider" data-slide-to="0" class="active"></li>
+								<li data-target="#room-slider" data-slide-to="1"></li>
+								<li data-target="#room-slider" data-slide-to="2"></li>
+							</ol>
+							<!-- Wrapper for slides (Vertical) -->
+							<div class="carousel-inner vertical" role="listbox">
+								<div class="item active item-bg-1">
+									<div class="bg-img-over-effect"></div>
+									<div class="slider-in-room">
+										<div class="content">
+											<h3>品牌诞生</h3>
+											<p>XXXX年，XXXX在美国密西根州的弗林特市创立了XX汽车公司，并建立了XX的第一座汽车工厂。</p>
+										</div>
+										<!--<div class="slider-meta">
+											<div class="info">
+												<span class="building">
+													<img src="assets/images/icons/building.png" alt="icon">
+													<a href="#">60m</a>
+												</span>
+												<span class="technology">                                            
+													<img src="assets/images/icons/technology.png" alt="icon">
+													<a href="#">4</a>
+												</span>
+												<span class="bath"> 
+													<img src="assets/images/icons/bath.png" alt="icon">
+													<a href="#">2</a>
+												</span>
+											</div>
+											<div class="price">
+												<a href="#" class="price-btn">$2000</a>
+											</div>
+										</div> --><!-- /.slider-meta -->
+									</div> <!-- /.slider-in-room -->
+								</div> <!-- /.item -->
+								<div class="item item-bg-2">
+									<div class="bg-img-over-effect"></div>
+									<div class="slider-in-room">
+										<div class="content">
+											<h3>首台概念车</h3>
+											<p>好莱坞的传奇设计师，打造出了汽车史上的首台概念车，从此将汽车造型从单纯的工业设计带入了艺术殿堂。</p>
+										</div>
+										<!--<div class="slider-meta">
+											<div class="info">
+												<span class="building">
+													<img src="assets/images/icons/building.png" alt="Iocn">
+													<a href="#">60m</a>
+												</span>
+												<span class="technology">                                            
+													<img src="assets/images/icons/technology.png" alt="Iocn">
+													<a href="#">4</a>
+												</span>
+												<span class="bath"> 
+													<img src="assets/images/icons/bath.png" alt="Iocn">
+													<a href="#">2</a>
+												</span>
+											</div>
+											<div class="price">
+												<a href="#" class="price-btn">$2000</a>
+											</div>
+										</div>--> <!-- /.slider-meta -->
+									</div> <!-- /.slider-in-room -->
+								</div> <!-- /.item -->
+								<div class="item item-bg-3">
+									<div class="slider-in-room">
+									<div class="bg-img-over-effect"></div>
+										<div class="content">
+											<h3>出口北美世界</h3>
+											<p>出口包括美国、加拿大、墨西哥的三大市场，这也是上汽通用汽车首次实现对美国本土的整车出口。</p>
+										</div>
+										<!--<div class="slider-meta">
+											<div class="info">
+												<span class="building">
+													<img src="assets/images/icons/building.png" alt="Iocn">
+													<a href="#">60m</a>
+												</span>
+												<span class="technology">                                            
+													<img src="assets/images/icons/technology.png" alt="Iocn">
+													<a href="#">4</a>
+												</span>
+												<span class="bath"> 
+													<img src="assets/images/icons/bath.png" alt="Iocn">
+													<a href="#">2</a>
+												</span>
+											</div>
+											<div class="price">
+												<a href="#" class="price-btn">$2000</a>
+											</div>
+										</div> --><!-- /.slider-meta -->
+									</div> <!-- /.slider-in-room -->
+								</div> <!-- /.item -->
+							</div> <!-- /.carousel-inner -->
+						</div> <!-- /#room-slider -->
+					</div> <!-- /.col- -->
+				</div> <!-- /.row -->  
+			</div> <!-- /.room-feature-all -->
+		</div> <!-- /.container -->
+	</section> <!-- /.room-feature -->
+	<!-- /ROOM FEATURE AREA END -->
+
+	<!-- OUR TEAM AREA START -->
+	<section class="our-team">
+		<div class="container">
+			<div class="section-heading">
+				<h5></h5>
+				<div class="main-title">
+					<h2><span>我们</span> 团队</h2>
+					<strong></strong> <!-- Use for heading after effect -->
+				</div>
+			</div> <!-- /.section-heading -->
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+					<div class="team-members">
+						<img src="assets/images/team/1.jpg" alt="Team Member">
+						<div class="member-name">
+							<h3>销售经理</h3>
+						</div><!-- /.member-name -->
+						<div class="member-hover">
+							<div class="member-info">
+								<h3>销售经理</h3>
+								<a href="#"></a>
+								<div class="member-social">
+									<ul>
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+										<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div><!-- /.member-hover -->
+					</div> <!-- /.team-members -->
+				</div> <!-- /.col -->
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+					<div class="team-members">
+						<img src="assets/images/team/2.jpg" alt="Team Member">
+						<div class="member-name">
+							<h3>销售顾问</h3>
+						</div><!-- /.member-name -->
+						<div class="member-hover">
+							<div class="member-info">
+								<h3>销售顾问</h3>
+								<a href="#"></a>
+								<div class="member-social">
+									<ul>
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+										<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div><!-- /.member-hover -->
+					</div> <!-- /.team-members -->
+				</div> <!-- /.col -->
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+					<div class="team-members">
+						<img src="assets/images/team/3.jpg" alt="Team Member">
+						<div class="member-name">
+							<h3>维修师傅</h3>
+						</div><!-- /.member-name -->
+						<div class="member-hover">
+							<div class="member-info">
+								<h3>维修师傅</h3>
+								<a href="#"></a>
+								<div class="member-social">
+									<ul>
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+										<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div><!-- /.member-hover -->
+					</div> <!-- /.team-members -->
+				</div> <!-- /.col -->
+				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+					<div class="team-members">
+						<img src="assets/images/team/4.jpg" alt="Team Member">
+						<div class="member-name">
+							<h3>售后客服</h3>
+						</div><!-- /.member-name -->
+						<div class="member-hover">
+							<div class="member-info">
+								<h3>售后客服</h3>
+								<a href="#"></a>
+								<div class="member-social">
+									<ul>
+										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+										<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div><!-- /.member-hover -->
+					</div> <!-- /.team-members -->
+				</div> <!-- /.col -->
+			</div><!-- row -->
+		</div><!-- container -->
+	</section> <!-- /.our-team -->
+	<!-- /OUR TEAM AREA END -->
+
+	<!-- TESTIMONIAL AREA START -->
+	<section class="testimonial">
+		<div class="bg-img-over-effect"></div>
+		<div class="container">
+			<div class="section-heading if-bg-colorful">
+				<h5></h5>
+				<div class="main-title">
+					<h2><span>客户</span> 见证</h2>
+					<strong></strong> <!-- Use for heading after effect -->
+				</div>
+			</div> <!-- /.section-heading -->
+			<div class="row">
+				<div id="testimonial-carousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+					<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2">
+						<div class="carousel-inner">
+							<!-- Carousel items -->
+							<div class="item active">
+								<div class="client-opition">
+									<div class="row">
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+											<div class="client-thumb">
+												<img src="assets/images/client/1.jpg" alt="Client">
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+											<div class="client-focus">
+												<div class="client-mind">
+													<h4>一嗨租车</h4>
+												</div>
+												<div class="designation">
+													<h5>采购部</h5>
+												</div>
+												<div class="feedback">
+													<img src="assets/images/icons/5star.png" alt="feedback">
+												</div>
+											</div> <!-- /.client-focus -->
+										</div>
+									</div> <!-- /.row -->
+								</div> <!-- /.client-opition -->
+								<div class="client-said">
+									<p>DREAM CAR 的专业服务，良好的驾车体验，高性价比，是我们必选的理由！</p>
+									<div class="signature">
+										<img src="assets/images/client/signature.png" alt="Signature">
+									</div>
+								</div> <!-- /.client-said -->
+							</div> <!-- /.item -->
+							<div class="item">
+								<div class="client-opition">
+									<div class="row">
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+											<div class="client-thumb">
+												<img src="assets/images/client/2.jpg" alt="Client">
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+											<div class="client-focus">
+												<div class="client-mind">
+													<h4>滴滴出行</h4>
+												</div>
+												<div class="designation">
+													<h5>运维部</h5>
+												</div>
+												<div class="feedback">
+													<img src="assets/images/icons/5star.png" alt="feedback">
+												</div>
+											</div> <!-- /.client-focus -->
+										</div>
+									</div> <!-- /.row -->
+								</div> <!-- /.client-opition -->
+								<div class="client-said">
+									<p>DREAM CAR 定期专业的保养维修服务，放心、省心，大大降低了保修事故率！</p>
+									<div class="signature">
+										<img src="assets/images/client/signature.png" alt="Signature">
+									</div>
+								</div> <!-- /.client-said -->
+							</div> <!-- /.item -->
+							<div class="item">
+								<div class="client-opition">
+									<div class="row">
+										<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+											<div class="client-thumb">
+												<img src="assets/images/client/3.jpg" alt="Client">
+											</div>
+										</div>
+										<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+											<div class="client-focus">
+												<div class="client-mind">
+													<h4>首汽约车</h4>
+												</div>
+												<div class="designation">
+													<h5>客户服务部</h5>
+												</div>
+												<div class="feedback">
+													<img src="assets/images/icons/5star.png" alt="feedback">
+												</div>
+											</div> <!-- /.client-focus -->
+										</div>
+									</div> <!-- /.row -->
+								</div> <!-- /.client-opition -->
+								<div class="client-said">
+									<p>DREAM CAR 为客户提供了舒适豪华的体验，得到了良好的反馈。</p>
+									<div class="signature">
+										<img src="assets/images/client/signature.png" alt="Signature">
+									</div>
+								</div> <!-- /.client-said -->
+							</div> <!-- /.item -->
+						</div> <!-- /.carousel-inner -->
+					</div> <!-- /.col- -->
+					<!-- Carousel nav -->
+					<a class="carousel-control left" href="#testimonial-carousel" data-slide="prev">
+						<i class="fa fa-long-arrow-left"></i>
+					</a>
+					<a class="carousel-control right" href="#testimonial-carousel" data-slide="next">
+						<i class="fa fa-long-arrow-right"></i>
+					</a>
+				</div> <!-- /#testimonial-carousel -->
+			</div> <!-- /.row -->
+		</div> <!-- /.container -->
+	</section> <!-- /.testimonial-->
+	<!-- /TESTIMONIAL AREA END -->
+
+	<!-- SHOWCASE FEATURE AREA START -->
+	<section class="showcase-feature">
+		<div class="container">	
+			<div class="section-heading">
+				<h5></h5>
+				<div class="main-title">
+					<h2><span>产品</span> 展示</h2>
+					<strong></strong> <!-- Use for heading after effect -->
+				</div>
+			</div> <!-- /.section-heading -->
+			<div id="showcase-main-thumb-slider-section">
+				<!-- Showcase Slider Main -->
+				<div id="showcase-main-area-slider">
+					<div class="items">
+						<div class="img-pot" data-bg-img="assets/images/slider/showcase/1.jpg"></div>
+					</div>
+					<div class="items">
+						<div class="img-pot" data-bg-img="assets/images/slider/showcase/2.jpg"></div>
+					</div>
+					<div class="items">
+						<div class="img-pot" data-bg-img="assets/images/slider/showcase/3.jpg"></div>
+					</div>
+					<div class="items">
+						<div class="img-pot" data-bg-img="assets/images/slider/showcase/4.jpg"></div>
+					</div>
+					<div class="items">
+						<div class="img-pot" data-bg-img="assets/images/slider/showcase/5.jpg"></div>
+					</div>
+					<div class="items">
+						<div class="img-pot" data-bg-img="assets/images/slider/showcase/6.jpg"></div>
+					</div>
+				</div> <!-- /#showcase-main-area-slider -->
+				<!-- Showcase Slider Thumbnail -->
+				<div id="showcase-thumb-slider">
+					<div class="items">
+						<div class="img-pot" data-bg-img="assets/images/slider/showcase/1.jpg"></div>
+					</div>
+					<div class="items">
+						<div class="img-pot" data-bg-img="assets/images/slider/showcase/2.jpg"></div>
+					</div>
+					<div class="items">
+						<div class="img-pot" data-bg-img="assets/images/slider/showcase/3.jpg"></div>
+					</div>
+					<div class="items">
+						<div class="img-pot" data-bg-img="assets/images/slider/showcase/4.jpg"></div>
+					</div>
+					<div class="items">
+						<div class="img-pot" data-bg-img="assets/images/slider/showcase/5.jpg"></div>
+					</div>
+					<div class="items">
+						<div class="img-pot" data-bg-img="assets/images/slider/showcase/6.jpg"></div>
+					</div>
+				</div> <!-- /#showcase-thumb-slider -->
+			</div> <!-- /#showcase-main-thumb-slider-section --> 
+			<div class="showcase-btn">
+				<a href="#" class="dream-btn">查看</a>
+			</div>
+		</div> <!-- /.container -->
+	</section> <!-- /.showcase-feature -->
+	<!-- /SHOWCASE FEATURE AREA END -->
+
+	<!-- FEATURES AREA START -->
+	<section class="features">
+		<div class="bg-img-over-effect"></div>
+		<div class="container">	
+			<div class="features-items">
+				<ul>
+					<li class="wow fadeInLeft">
+						<a href="#"><i class="flaticon-armchair"></i></a>
+						<h5>豪华配饰</h5>
+					</li>
+					<li class="wow zoomIn">
+						<a href="#"><i class="flaticon-shield"></i></a>
+						<h5>安全驾驶系统</h5>
+					</li>
+					<li class="wow zoomIn">
+						<a href="#"><i class="flaticon-support"></i></a>
+						<h5>24小时维修</h5>
+					</li>
+					<li class="wow fadeInRight">
+						<a href="#"><i class="flaticon-command"></i></a>
+						<h5>24小时客服</h5>
+					</li>
+				</ul>
+			</div> <!-- /.features-items -->
+		</div> <!-- /.container -->
+	</section> <!-- /.features -->
+	<!-- /FEATURES AREA END -->
+
+	<!-- BLOG AREA START -->
+	<section class="blog">
+		<div class="container">	
+			<div class="section-heading">
+				<h5></h5>
+				<div class="main-title">
+					<h2><span>关于</span>我们</h2>
+					<strong></strong> <!-- Use for heading after effect -->
+				</div>
+			</div> <!-- /.section-heading -->
+			<div class="row">
+				<div class="blog-list">
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+						<!-- post begin -->
+						<article class="post-item border-right shadow-bottom-items">
+							<div class="post-media">
+								<img src="assets/images/featured/our-blog/1.jpg" alt="Featured">
+							</div>
+							<div class="post-inner border-around">
+								<div class="post-metadata">
+									<span class="user">
+										<i class="flaticon-people-1"></i>
+										<a href="#">作者</a>
+									</span>
+									<span class="date">
+										<i class="flaticon-calendar-weekly"></i>
+										<a href="#">Feb 19, 2016</a>
+									</span>
+									<span class="tag"> 
+										<i class="flaticon-shop"></i>
+										<a href="#">汽车新闻</a>
+									</span>    
+								</div> <!-- /.post-metadata -->
+								<div class="post-content border-top">
+									<div class="post-title">
+										<h5><a href="blog-single.html">行业新闻</a></h5>
+									</div>
+									<div class="post-entry">
+										<p>最新新闻最新新闻最新新闻最新新闻最新新闻最新新闻最新新闻最新新闻……</p>
+									</div>
+									<div class="post-about border-top">
+										<a href="single.jsp" class="read-more">查看更多</a>
+									</div>
+								</div> <!-- /.post-content -->
+							</div> <!-- /.post-inner -->
+						</article> <!-- /.post-item -->
+					</div> <!-- /.col- -->
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+						<!-- post begin -->
+						<article class="post-item border-right shadow-bottom-items">
+							<div class="post-media">
+								<img src="assets/images/featured/our-blog/2.jpg" alt="Featured">
+							</div>
+							<div class="post-inner border-around">
+								<div class="post-metadata">
+									<span class="user">
+										<i class="flaticon-people-1"></i>
+										<a href="#">作者</a>
+									</span>
+									<span class="date">
+										<i class="flaticon-calendar-weekly"></i>
+										<a href="#">Feb 19, 2016</a>
+									</span>
+									<span class="tag"> 
+										<i class="flaticon-shop"></i>
+										<a href="#">品牌活动</a>
+									</span>    
+								</div> <!-- /.post-metadata -->
+								<div class="post-content border-top">
+									<div class="post-title">
+										<h5><a href="blog-single.html">品牌活动</a></h5>
+									</div>
+									<div class="post-entry">
+										<p>品牌活动品牌活动品牌活动品牌活动品牌活动品牌活动品牌活动品牌活动……</p>
+									</div>
+									<div class="post-about border-top">
+										<a href="single.jsp" class="read-more">查看更多</a>
+									</div>
+								</div> <!-- /.post-content -->
+							</div> <!-- /.post-inner -->
+						</article> <!-- /.post-item -->
+					</div> <!-- /.col- -->
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+						<!-- post begin -->
+						<article class="post-item border-right shadow-bottom-items">
+							<div class="post-media">
+								<img src="assets/images/featured/our-blog/3.jpg" alt="Featured">
+							</div>
+							<div class="post-inner border-around">
+								<div class="post-metadata">
+									<span class="user">
+										<i class="flaticon-people-1"></i>
+										<a href="#">作者</a>
+									</span>
+									<span class="date">
+										<i class="flaticon-calendar-weekly"></i>
+										<a href="#">Feb 19, 2016</a>
+									</span>
+									<span class="tag"> 
+										<i class="flaticon-shop"></i>
+										<a href="#">经销商招募</a>
+									</span>    
+								</div> <!-- /.post-metadata -->
+								<div class="post-content border-top">
+									<div class="post-title">
+										<h5><a href="blog-single.html">经销商招募</a></h5>
+									</div>
+									<div class="post-entry">
+										<p>经销商经销商经销商经销商经销商经销商经销商经销商经销商经销商招募..</p>
+									</div>
+									<div class="post-about border-top">
+										<a href="single.jsp" class="read-more">查看更多</a>
+									</div>
+								</div> <!-- /.post-content -->
+							</div> <!-- /.post-inner -->
+						</article> <!-- /.post-item -->
+					</div> <!-- /.col- -->
+				</div> <!-- /.blog-list -->
+			</div> <!-- /.row -->  
+		</div> <!-- /.container -->
+	</section> <!-- /.blog -->
+	<!-- /BLOG AREA END -->
+
+																																																													 
+	<!-- FOOTER AREA START -->
+	<footer class="footer" id="footer">
+		<div class="footer-widget-area">
+			<div class="container">	
+				<div class="footer-widgets">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+							<div class="single-widget">
+								<div class="widget-heading info-heading">
+									<a href="index.html" class="logo-footer">
+										<img src="assets/images/logo/logo-footer.png" alt="LogoFooter">
+									</a>
+								</div>
+								<div class="widget-info">
+									<p>我们为您提供集汽车内外装饰、汽车影音改装、汽车精品销售、汽车美容养护于一体的大型“一站式汽车服务”</p>
+								</div> <!-- /.widget-info -->
+							</div> <!-- /.single-widget -->
+						</div> <!-- /.col- -->
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+							<div class="single-widget">
+								<div class="widget-heading">
+									<h3>热门搜索</h3>
+								</div>
+								<div class="widget-link">
+									<ul>
+										<li><a href="#">一汽大众</a></li>
+										<li><a href="#">宝马</a></li>
+										<li><a href="#">路虎</a></li>
+										<li><a href="#">汽车配饰</a></li>
+										<li><a href="#">预约体验</a></li>
+									</ul>
+								</div> <!-- /.widget-link -->
+							</div> <!-- /.single-widget -->
+						</div> <!-- /.col- -->
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+							<div class="single-widget">
+								<div class="widget-heading">
+									<h3>常见问题</h3>
+								</div>
+								<div class="widget-link">
+									<ul>
+										<li><a href="#">问题解答</a></li>
+										<li><a href="#">服务支持t</a></li>
+										<li><a href="#">网站地图</a></li>
+										<li><a href="#">关于我们</a></li>
+										<li><a href="#">价格咨询</a></li>
+									</ul>
+								</div> <!-- /.widget-link -->
+							</div> <!-- /.single-widget -->
+						</div> <!-- /.col- -->
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+							<div class="single-widget">
+								<div class="widget-heading">
+									<h3>联系我们</h3>
+								</div>
+								<div class="widget-address">
+									<address>
+										<ul>
+											<li>
+												<div class="address-left">
+													<p>办公地址:</p>
+												</div>
+												<div class="address-right">
+													<p>21/D, Redwood City, CA 94872, USA</p>
+												</div>
+											</li>
+											<li>
+												<div class="address-left">
+													<p>电话:</p>
+												</div>
+												<div class="address-right">
+													<p>
+														+88-000-1111-2225 <br />
+														+88-000-1111-2226
+													</p>
+												</div>
+											</li>
+											<li>
+												<div class="address-social">
+													<ul>
+														<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+														<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+														<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+														<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+													</ul>
+												</div>
+											</li>
+										</ul>
+									</address>
+								</div> <!-- /.widget-address -->
+							</div> <!-- /.single-widget -->
+						</div> <!-- /.col- -->
+
+					</div> <!-- /.row -->  
+				</div> <!-- /.footer-widgets -->
+			</div> <!-- /.container -->
+		</div> <!-- /.footer-widget-area -->
+		<div class="copyright-designer">
+			<div class="container">	
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						<div class="copyright">
+							<p>版权所有   &copy;2019-2020  汽车美容工作室.</p>
+						</div> <!-- /.copyright -->
+					</div> <!-- /.col- -->
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						<div class="designer">
+							<p>
+							</p>
+						</div> <!-- /.designer -->
+					</div> <!-- /.col- -->
+				</div> <!-- /.row -->
+			</div> <!-- /.container -->
+		</div> <!-- /.copyright-designer -->
+
+		<!-- Go to the page top  -->
+		<div class="go-top">
+			<a href="#" class="back-to-top dream-btn">
+				<i class="fa fa-angle-up"></i>
+			</a>
+		</div> <!-- /.go-top -->
+	</footer> <!-- /.footer -->
+	<!-- /FOOTER AREA END -->
+</div> <!-- /.wrapper -->
+<!-- ALL SECTION INCLOSED TO THE WRAPPER -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugin and others plugins) -->
+<script type="text/javascript" src="assets/js/jquery-2.2.3.min.js"></script>
+<!-- jquery-ui-1.12.0 -->
+<script type="text/javascript" src="assets/js/jquery-ui/jquery-ui-1.12.0.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- Bootstrap v3.3.6 -->
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<!-- Owl Carousel 2 -->
+<script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+<!-- Owl Carousel v1.3.2 -->
+<script type="text/javascript" src="assets/js/owl-1.3.2/owl.carousel.min.js"></script>
+<!-- WOW - v1.1.3 -->
+<script type="text/javascript" src="assets/js/wow.min.js"></script>
+<!-- Typer Js -->
+<script type="text/javascript" src="assets/js/typed.min.js"></script>
+<!-- Noice Slider (Price Range) -->
+<script src="assets/js/jquery.nouislider.min.js"></script> 
+<!-- jQuery Mobile Library -->
+<script type="text/javascript" src="assets/js/jquery.mobile.custom.min.js"></script>  
+<!-- Conatact Map -->
+<!--<script type="text/javascript" src="assets/js/map-script.js"></script>-->
+
+<!-- Custom/Main Script here -->
+<script type="text/javascript" src="assets/js/menu.js"></script>
+<script type="text/javascript" src="assets/js/custom.js"></script>
+
+</body>
+</html>

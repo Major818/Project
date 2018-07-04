@@ -1,0 +1,19 @@
+package cn.tedu.dreamcar.service;
+
+import cn.tedu.dreamcar.pojo.Car;
+import cn.tedu.dreamcar.pojo.User;
+import org.springframework.stereotype.Service;
+
+/**
+ * Created by Administrator on 2017/10/19.
+ */
+public interface UserService {
+    public void saveUser(User user,Car car);
+
+
+    public User findUser(String username,String password);
+
+    public String findUserByName(String username);
+
+    User findUserByUserName(String username);
+}
